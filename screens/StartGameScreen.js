@@ -22,7 +22,8 @@ export default StartGameScreen;
 const styles = StyleSheet.create({
   StartGameScreenContainer: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#594545'
   },
   h1: {
     fontWeight: '800',
