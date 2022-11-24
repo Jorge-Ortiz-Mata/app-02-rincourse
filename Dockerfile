@@ -6,7 +6,7 @@ RUN apt-get update \
   curl \
   sudo
 
-WORKDIR /workspaces/myapp
+WORKDIR /workspaces/app-02-rincourse
 
 ARG USERNAME=jorge
 ARG USER_UID=1001
@@ -30,6 +30,6 @@ RUN npm install -g expo-cli @expo/ngrok@^4.1.0
 
 COPY . .
 
-VOLUME ["/workspaces/myapp/node_modules"]
+VOLUME ["/workspaces/app-02-rincourse/node_modules"]
 
 USER $USERNAME
