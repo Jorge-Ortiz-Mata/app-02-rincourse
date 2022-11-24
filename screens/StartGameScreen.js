@@ -5,13 +5,17 @@ const StartGameScreen = () => {
 
   return(
     <View style={styles.StartGameScreenContainer}>
-      <Text style={styles.h1}>
-        Start the game!
-      </Text>
-      <View style={styles.secondContainer}>
-        <TextInput style={{backgroundColor: '#ffffff', width: 50}} />
-        <PrimaryButton>Reset</PrimaryButton>
-        <PrimaryButton>Confirm</PrimaryButton>
+      <View style={styles.firstSection}>
+        <View>
+          <Text style={styles.h1}>Add a number</Text>
+        </View>
+        <View>
+          <TextInput style={styles.input} maxLength={2} autoComplete={false} keyboardType='number-pad' />
+        </View>
+        <View style={styles.buttonsSection}>
+          <PrimaryButton>Reset</PrimaryButton>
+          <PrimaryButton>Confirm</PrimaryButton>
+        </View>
       </View>
     </View>
   )
@@ -22,17 +26,35 @@ export default StartGameScreen;
 const styles = StyleSheet.create({
   StartGameScreenContainer: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#594545'
+  },
+  firstSection: {
+    marginTop: 100,
+    marginHorizontal: 50,
+    padding: 20,
+    borderRadius: 10,
+    backgroundColor: '#425F57',
   },
   h1: {
     fontWeight: '800',
     fontSize: 28,
-    color: '#ffffff'
+    color: '#fff',
+    textAlign: 'center',
+    marginBottom: 10
   },
-  secondContainer: {
+  input: {
+    width: '40%',
+    borderBottomColor: '#fff',
+    borderBottomWidth: 1,
+    textAlign: 'center',
+    fontWeight: '800',
+    color: '#fff',
+    fontSize: 22,
+    padding: 5,
+    marginHorizontal: '30%'
+  },
+  buttonsSection:{
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    borderWidth: 2
+    justifyContent: 'space-around',
+    marginTop: 20
   }
 })
