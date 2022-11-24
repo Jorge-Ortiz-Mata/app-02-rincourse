@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, } from 'react-native';
-import Welcome from './screens/Welcome';
 import StartGameScreen from './screens/StartGameScreen';
 
 export default function App() {
