@@ -9,8 +9,8 @@ const StartGameScreen = () => {
         <View>
           <Text style={styles.h1}>Add a number</Text>
         </View>
-        <View>
-          <TextInput style={styles.input} maxLength={2} autoComplete={false} keyboardType='number-pad' />
+        <View style={{justifyContent: 'center', alignItems:'center'}}>
+          <TextInput style={styles.input} maxLength={2} autoComplete='off' keyboardType='number-pad' />
         </View>
         <View style={styles.buttonsSection}>
           <PrimaryButton>Reset</PrimaryButton>
@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 22,
     padding: 5,
-    marginHorizontal: '30%'
   },
   buttonsSection:{
     flexDirection: 'row',
