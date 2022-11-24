@@ -4,7 +4,8 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
   ca-certificates \
   curl \
-  sudo
+  sudo \
+  git
 
 WORKDIR /workspaces/app-02-rincourse
 
