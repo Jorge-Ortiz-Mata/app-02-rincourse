@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View, StyleSheet, TextInput, Text, Alert } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 
-const StartGameScreen = () => {
+const StartGameScreen = ({changeScreen}) => {
 
   const [value, setValue] = useState('');
 
@@ -23,6 +23,8 @@ const StartGameScreen = () => {
           [{text: 'Ok', style: 'destructive', onPress: callBtnAction('Reset')}]
         )
         return;
+      } else {
+        changeScreen(1);
       }
     }
   }
