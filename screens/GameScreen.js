@@ -13,7 +13,7 @@ const GameScreen = ({changeScreen, numberSave}) => {
   const [logsList, setLogsList] = useState([])
 
   function backToScreen(){
-    changeScreen(1, 0);
+    changeScreen(1, 0, []);
   }
 
   function guessNumber(min, max){
@@ -45,7 +45,7 @@ const GameScreen = ({changeScreen, numberSave}) => {
     ])
   }
 
-  numberSave === numberAnswer ? console.log('Yes') : console.log('Not yet...')
+  numberSave === numberAnswer ? changeScreen(3, 0, logsList) : console.log('Not yet...')
 
   return(
     <View>

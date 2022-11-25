@@ -14,10 +14,12 @@ export default function App() {
   let screen;
 
   const [number, setNumber] = useState(0);
+  const [AllLogsList, setAllLogsList] = useState([]);
 
-  function changeScreenValue(screenIndex, numberTypped){
+  function changeScreenValue(screenIndex, numberTypped, logsList){
     setNumber(numberTypped);
     setScreen(screenIndex);
+    setAllLogsList(logsList);
   }
 
   switch(screenNumber){
@@ -32,6 +34,7 @@ export default function App() {
     case 3:
       screen = <GameOver
         numberSave={number}
+        allLogs={AllLogsList}
         changeScreen={changeScreenValue} />
   }
 

@@ -25,7 +25,7 @@ const StartGameScreen = ({changeScreen}) => {
         )
         return;
       } else {
-        changeScreen(2, numberTypped);
+        changeScreen(2, numberTypped, []);
       }
     }
   }
