@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
   },
   firstSection: {
     marginTop: 100,
-    marginHorizontal: 50,
     padding: 20,
     borderRadius: 10,
     backgroundColor: '#425F57',

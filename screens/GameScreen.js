@@ -1,4 +1,5 @@
 import { View, StyleSheet, Text, Button } from "react-native";
+import Title from "../components/Title";
 
 const GameScreen = ({changeScreen}) => {
 
@@ -8,8 +9,12 @@ const GameScreen = ({changeScreen}) => {
 
   return(
     <View>
-      <Text>Hello World</Text>
-      <Button title='Exit' color={'#ff0000'} onPress={backToScreen} />
+      <View>
+        <Title>¡The game started!</Title>
+      </View>
+      <View>
+        <Button title='Exit' color={'#ff0000'} onPress={backToScreen} />
+      </View>
     </View>
   )
 }
