@@ -5,11 +5,12 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
+import GameOver from './screens/GameOver';
 
 const image = require('./assets/images/control.png') ;
 
 export default function App() {
-  const [screenNumber, setScreen] = useState(0);
+  const [screenNumber, setScreen] = useState(1);
   let screen;
 
   const [number, setNumber] = useState(0);
@@ -21,12 +22,17 @@ export default function App() {
 
   switch(screenNumber){
     case 1:
+      screen = <StartGameScreen changeScreen={changeScreenValue} />
+      break;
+    case 2:
       screen = <GameScreen
         numberSave={number}
         changeScreen={changeScreenValue} />
       break;
-    default:
-      screen = <StartGameScreen changeScreen={changeScreenValue} />
+    case 3:
+      screen = <GameOver
+        numberSave={number}
+        changeScreen={changeScreenValue} />
   }
 
   return (

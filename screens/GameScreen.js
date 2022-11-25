@@ -13,7 +13,7 @@ const GameScreen = ({changeScreen, numberSave}) => {
   const [logsList, setLogsList] = useState([])
 
   function backToScreen(){
-    changeScreen(0, 0);
+    changeScreen(1, 0);
   }
 
   function guessNumber(min, max){
