@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, StyleSheet, Text, Button } from "react-native";
+import { View, StyleSheet, Text, Button, FlatList } from "react-native";
 import Title from "../components/Title";
 import PrimaryButton from "../components/PrimaryButton";
 import Colors from "../utilities/Colors";
@@ -8,7 +8,7 @@ const GameScreen = ({changeScreen, numberSave}) => {
 
   const [maxNumber, setMaxNumber] = useState(99);
   const [minNumber, setMinNumber] = useState(1);
-  const [phoneIntents, setPhoneIntents] = useState(0);
+  const [phoneIntents, setPhoneIntents] = useState(1);
   const [numberAnswer, setNumberAnswer] = useState('');
   const [logsList, setLogsList] = useState([])
 
@@ -26,7 +26,6 @@ const GameScreen = ({changeScreen, numberSave}) => {
     setPhoneIntents(phoneIntents + 1);
     setNumberAnswer(randomNumber);
     addLogToList(randomNumber);
-
   }
 
   function increaseGuessNumber(){
@@ -42,7 +41,7 @@ const GameScreen = ({changeScreen, numberSave}) => {
   function addLogToList(phoneNumber){
     setLogsList((currentList) => [
       ...currentList,
-      {id: phoneIntents, text: `The Phone answer was ${phoneNumber}`}
+      {id: phoneIntents, num: phoneNumber}
     ])
   }
 
@@ -64,16 +63,14 @@ const GameScreen = ({changeScreen, numberSave}) => {
         <PrimaryButton callBtn={decreaseGuessNumber}>-</PrimaryButton>
       </View>
       <View>
-        <Text>Phone intents.</Text>
-        <View>
-          {
-            logsList.map (log => {
-              return(
-                <Text>{log.text}</Text>
-              )
-            })
-          }
-        </View>
+        <FlatList data={logsList}
+          keyExtractor={(log, index) => {
+            return log.id
+          }}
+          renderItem={(logData) => {
+            return <Text>Log: {logData.item.id}, the phone's answer was: {logData.item.num}</Text>
+          }}
+        />
       </View>
       <View>
         <Button title='Exit' color={Colors.red.strong} onPress={backToScreen} />
@@ -83,3 +80,5 @@ const GameScreen = ({changeScreen, numberSave}) => {
 }
 
 export default GameScreen;
+
+const styles = StyleSheet.create({})
