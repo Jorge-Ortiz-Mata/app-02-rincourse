@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { View, StyleSheet, TextInput, Text, Alert } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
+import Colors from "../utilities/Colors";
 
 const StartGameScreen = ({changeScreen}) => {
 
@@ -64,22 +65,22 @@ const styles = StyleSheet.create({
     marginTop: 100,
     padding: 20,
     borderRadius: 10,
-    backgroundColor: '#425F57',
+    backgroundColor: Colors.green.strong,
   },
   h1: {
     fontWeight: '800',
     fontSize: 28,
-    color: '#fff',
+    color: Colors.white,
     textAlign: 'center',
     marginBottom: 10
   },
   input: {
     width: '40%',
-    borderBottomColor: '#fff',
+    borderBottomColor: Colors.white,
     borderBottomWidth: 1,
     textAlign: 'center',
     fontWeight: '800',
-    color: '#fff',
+    color: Colors.white,
     fontSize: 22,
     padding: 5,
   },

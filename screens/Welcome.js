@@ -1,4 +1,5 @@
 import { StyleSheet, View, TextInput, Pressable, Text } from 'react-native';
+import Colors from '../utilities/Colors';
 
 const Welcome = () => {
 
@@ -20,6 +21,6 @@ const styles = StyleSheet.create({
   h1: {
     fontWeight: '800',
     fontSize: 28,
-    color: '#ffffff'
+    color: Colors.white
   }
 })

@@ -1,6 +1,7 @@
 import { View, StyleSheet, Text, Button } from "react-native";
 import Title from "../components/Title";
 import PrimaryButton from "../components/PrimaryButton";
+import Colors from "../utilities/Colors";
 
 const GameScreen = ({changeScreen}) => {
 
@@ -25,7 +26,7 @@ const GameScreen = ({changeScreen}) => {
         <PrimaryButton callBtn={callBtn}>-</PrimaryButton>
       </View>
       <View>
-        <Button title='Exit' color={'#ff0000'} onPress={backToScreen} />
+        <Button title='Exit' color={Colors.red.strong} onPress={backToScreen} />
       </View>
     </View>
   )

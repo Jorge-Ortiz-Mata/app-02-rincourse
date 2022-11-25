@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
+import Colors from "../utilities/Colors";
 
 const PrimaryButton = ({children, callBtn}) => {
 
@@ -29,10 +30,10 @@ const styles = StyleSheet.create({
     borderRadius: 5
   },
   noPressedBtn: {
-    backgroundColor: '#E1FFB1',
+    backgroundColor: Colors.green.ligth,
   },
   pressedBtn: {
-    backgroundColor: '#749F82',
+    backgroundColor: Colors.green.medium,
   },
   btnText: {
     fontWeight: '900',
