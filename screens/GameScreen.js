@@ -1,5 +1,6 @@
 import { View, StyleSheet, Text, Button } from "react-native";
 import Title from "../components/Title";
+import PrimaryButton from "../components/PrimaryButton";
 
 const GameScreen = ({changeScreen}) => {
 
@@ -7,10 +8,21 @@ const GameScreen = ({changeScreen}) => {
     changeScreen(0);
   }
 
+  function callBtn(){
+    console.log('Hello World')
+  }
+
   return(
     <View>
       <View>
         <Title>¡The game started!</Title>
+      </View>
+      <View>
+        <Text>Number</Text>
+      </View>
+      <View>
+        <PrimaryButton callBtn={callBtn}>+</PrimaryButton>
+        <PrimaryButton callBtn={callBtn}>-</PrimaryButton>
       </View>
       <View>
         <Button title='Exit' color={'#ff0000'} onPress={backToScreen} />
