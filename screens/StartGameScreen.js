@@ -15,9 +15,9 @@ const StartGameScreen = ({changeScreen}) => {
     if(children === 'Reset'){
       setValue('');
     } else {
-      const number = parseInt(value)
+      const numberTypped = parseInt(value)
 
-      if(isNaN(number) || number <= 0 || number > 99){
+      if(isNaN(numberTypped) || numberTypped <= 0 || numberTypped > 99){
         Alert.alert(
           'Invalid Number!',
           'Number should be between 1 and 99',
@@ -25,7 +25,7 @@ const StartGameScreen = ({changeScreen}) => {
         )
         return;
       } else {
-        changeScreen(1);
+        changeScreen(1, numberTypped);
       }
     }
   }

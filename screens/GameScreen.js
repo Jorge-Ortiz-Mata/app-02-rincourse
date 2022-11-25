@@ -3,10 +3,10 @@ import Title from "../components/Title";
 import PrimaryButton from "../components/PrimaryButton";
 import Colors from "../utilities/Colors";
 
-const GameScreen = ({changeScreen}) => {
+const GameScreen = ({changeScreen, numberSave}) => {
 
   function backToScreen(){
-    changeScreen(0);
+    changeScreen(0, 0);
   }
 
   function callBtn(){
@@ -19,7 +19,7 @@ const GameScreen = ({changeScreen}) => {
         <Title>¡The game started!</Title>
       </View>
       <View>
-        <Text>Number</Text>
+        <Text>{numberSave}</Text>
       </View>
       <View>
         <PrimaryButton callBtn={callBtn}>+</PrimaryButton>

@@ -12,13 +12,18 @@ export default function App() {
   const [screenNumber, setScreen] = useState(0);
   let screen;
 
-  function changeScreenValue(number){
-    setScreen(number);
+  const [number, setNumber] = useState(0);
+
+  function changeScreenValue(screenIndex, numberTypped){
+    setNumber(numberTypped);
+    setScreen(screenIndex);
   }
 
   switch(screenNumber){
     case 1:
-      screen = <GameScreen changeScreen={changeScreenValue} />
+      screen = <GameScreen
+        numberSave={number}
+        changeScreen={changeScreenValue} />
       break;
     default:
       screen = <StartGameScreen changeScreen={changeScreenValue} />
