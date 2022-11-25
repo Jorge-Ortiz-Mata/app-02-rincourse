@@ -1,10 +1,15 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 
-const PrimaryButton = ({children}) => {
+const PrimaryButton = ({children, resetValueButton}) => {
+
+  function resetValue(){
+    resetValueButton();
+  }
 
   return(
     <View>
       <Pressable
+        onPress={resetValue}
         style={(pressData) =>
           pressData.pressed
           ? [styles.pressedBtn, styles.generalPressedBtn]
