@@ -45,7 +45,7 @@ const GameScreen = ({changeScreen, numberSave}) => {
     ])
   }
 
-  numberSave === numberAnswer ? changeScreen(3, 0, logsList) : console.log('Not yet...')
+  numberSave === numberAnswer ? changeScreen(3, numberSave, logsList) : console.log('Not yet...')
 
   return(
     <View>
