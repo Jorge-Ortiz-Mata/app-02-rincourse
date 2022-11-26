@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View, Button, StyleSheet } from "react-native";
 import Title from "../components/Title";
 import PrimaryButton from "../components/PrimaryButton";
@@ -49,7 +49,13 @@ const GameScreen = ({changeScreen, numberSave}) => {
     ])
   }
 
-  numberSave === numberAnswer ? changeScreen(3, numberSave, logsList) : console.log('Not yet...')
+  useEffect(() => {
+    if(numberSave === numberAnswer){
+      changeScreen(3, numberSave, logsList)
+    }
+  }, [numberAnswer])
+
+  // numberSave === numberAnswer ? changeScreen(3, numberSave, logsList) : console.log('Not yet...')
 
   return(
     <View>

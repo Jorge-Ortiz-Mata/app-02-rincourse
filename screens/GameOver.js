@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import Title from "../components/Title";
 import UserNumber from "../components/UserNumber";
