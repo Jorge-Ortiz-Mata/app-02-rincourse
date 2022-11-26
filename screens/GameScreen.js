@@ -6,6 +6,7 @@ import Colors from "../utilities/Colors";
 import LogsList from "../components/LogsList";
 import PhoneNumber from "../components/PhoneNumber";
 import UserNumber from "../components/UserNumber";
+import { AntDesign, MaterialCommunityIcons  } from '@expo/vector-icons';
 
 const GameScreen = ({changeScreen, numberSave}) => {
 
@@ -56,9 +57,13 @@ const GameScreen = ({changeScreen, numberSave}) => {
         <Title>¡The game started!</Title>
         <UserNumber number={numberSave} />
         <View style={styles.secondContainer}>
-          <PrimaryButton callBtn={decreaseGuessNumber}>-</PrimaryButton>
+          <PrimaryButton callBtn={decreaseGuessNumber}>
+            <MaterialCommunityIcons name="minus-circle" size={30} color="black" />
+          </PrimaryButton>
           <PhoneNumber number={numberAnswer} />
-          <PrimaryButton callBtn={increaseGuessNumber}>+</PrimaryButton>
+          <PrimaryButton callBtn={increaseGuessNumber}>
+            <AntDesign name="pluscircle" size={30} color="black" />
+          </PrimaryButton>
         </View>
       </View>
 
@@ -82,7 +87,9 @@ const styles = StyleSheet.create({
   secondContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginVertical: 20,
+    marginHorizontal: 5
   },
   thirdContainer: {
     alignItems: 'center',
