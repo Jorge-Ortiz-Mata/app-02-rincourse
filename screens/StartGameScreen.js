@@ -2,10 +2,19 @@ import { useState } from "react";
 import { View, StyleSheet, TextInput, Text, Alert } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import Colors from "../utilities/Colors";
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 const StartGameScreen = ({changeScreen}) => {
-
   const [value, setValue] = useState('');
+
+  const [fontsLoaded] = useFonts({
+    'relay-regular': require('../assets/fonts/Raleway_400Regular.ttf')
+  })
+
+  if(!fontsLoaded){
+    return <AppLoading />
+  }
 
   function changeValue(value){
     setValue(value)
@@ -68,11 +77,12 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.green.strong,
   },
   h1: {
-    fontWeight: '800',
     fontSize: 28,
     color: Colors.white,
     textAlign: 'center',
-    marginBottom: 10
+    marginBottom: 10,
+    fontFamily: 'relay-regular',
+    fontWeight: '600'
   },
   input: {
     width: '40%',
