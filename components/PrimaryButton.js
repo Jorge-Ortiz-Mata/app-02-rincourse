@@ -37,6 +37,6 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontWeight: '900',
-    fontSize: 13
+    fontSize: 15
   },
 })

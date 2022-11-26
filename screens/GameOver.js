@@ -1,4 +1,6 @@
 import { StyleSheet, View, Text, Button } from "react-native";
+import Title from "../components/Title";
+import UserNumber from "../components/UserNumber";
 import Colors from "../utilities/Colors";
 
 const GameOver = ({numberSave, allLogs, changeScreen}) => {
@@ -9,13 +11,8 @@ const GameOver = ({numberSave, allLogs, changeScreen}) => {
 
   return(
     <View>
-      <Text>
-        ¡¡THE PHONE GUEESED!!
-      </Text>
-      <Text>------------</Text>
-      <Text>
-        {numberSave}
-      </Text>
+      <Title>¡¡THE PHONE GUEESED!!</Title>
+      <UserNumber number={numberSave} />
       <Text>------------</Text>
       {
         allLogs.map(log => {
@@ -26,6 +23,7 @@ const GameOver = ({numberSave, allLogs, changeScreen}) => {
           )
         })
       }
+      <Text>------------</Text>
       <Text>
         {allLogs.length}
       </Text>

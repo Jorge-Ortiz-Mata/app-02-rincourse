@@ -5,7 +5,7 @@ import Colors from "../utilities/Colors";
 const LogsList = ({logs}) => {
 
   return(
-    <View>
+    <View style={styles.container}>
       <FlatList data={logs}
         keyExtractor={(log, index) => {
           return log.id
@@ -20,5 +20,11 @@ const LogsList = ({logs}) => {
 
 export default LogsList;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    height: 300,
+    padding: 10,
+    borderRadius: 10
+  },
+})
 

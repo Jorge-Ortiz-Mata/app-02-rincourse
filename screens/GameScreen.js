@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { View, StyleSheet, Text, Button, FlatList } from "react-native";
+import { View, Button, StyleSheet } from "react-native";
 import Title from "../components/Title";
 import PrimaryButton from "../components/PrimaryButton";
 import Colors from "../utilities/Colors";
 import LogsList from "../components/LogsList";
 import PhoneNumber from "../components/PhoneNumber";
+import UserNumber from "../components/UserNumber";
 
 const GameScreen = ({changeScreen, numberSave}) => {
 
@@ -51,25 +52,40 @@ const GameScreen = ({changeScreen, numberSave}) => {
 
   return(
     <View>
-      <View>
+      <View style={styles.firstContainer}>
         <Title>¡The game started!</Title>
+        <UserNumber number={numberSave} />
+        <View style={styles.secondContainer}>
+          <PrimaryButton callBtn={decreaseGuessNumber}>-</PrimaryButton>
+          <PhoneNumber number={numberAnswer} />
+          <PrimaryButton callBtn={increaseGuessNumber}>+</PrimaryButton>
+        </View>
       </View>
-      <View>
-        <Text>You Typped: {numberSave}</Text>
+
+      <View style={styles.thirdContainer}>
+        <Button title='Cancel' color={Colors.red.strong} onPress={backToScreen} />
       </View>
-      <PhoneNumber number={numberAnswer} />
-      <View>
-        <PrimaryButton callBtn={increaseGuessNumber}>+</PrimaryButton>
-        <PrimaryButton callBtn={decreaseGuessNumber}>-</PrimaryButton>
-      </View>
-      <View>
-        <Button title='Exit' color={Colors.red.strong} onPress={backToScreen} />
-      </View>
-        <LogsList logs={logsList} />
+      <LogsList logs={logsList} />
     </View>
   )
 }
 
 export default GameScreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  firstContainer: {
+    backgroundColor: Colors.white,
+    padding: 10,
+    borderRadius: 20,
+    marginVertical: 20,
+  },
+  secondContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  thirdContainer: {
+    alignItems: 'center',
+    marginVertical: 10
+  }
+});
