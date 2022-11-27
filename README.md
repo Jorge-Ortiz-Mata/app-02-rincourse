@@ -12,9 +12,9 @@ As a user, you have to add a number, and your mobile phone will guess the number
 You will see different screens showing all the logs from the phone and the amount of intents your cellphone made.
 
 <div style="display: flex; gap: 5px;">
-  <img src='./assets/images/01.jpg' width='150'>
-  <img src='./assets/images/02.jpg' width='150'>
-  <img src='./assets/images/03.jpg' width='150'>
+  <img src='./assets/images/01.jpg' width='250'>
+  <img src='./assets/images/02.jpg' width='250'>
+  <img src='./assets/images/03.jpg' width='250'>
 </div>
 
 ## Softwares.
