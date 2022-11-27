@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
+import { StyleSheet, ImageBackground, SafeAreaView, Dimensions } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -50,10 +50,11 @@ export default function App() {
   );
 }
 
+const dimensionsWidth = Dimensions.get('screen').width
+
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    padding: 20
   },
   imageBack: {
     flex: 1,

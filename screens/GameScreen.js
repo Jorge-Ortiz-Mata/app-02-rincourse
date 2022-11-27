@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, Button, StyleSheet } from "react-native";
+import { View, Button, StyleSheet, useWindowDimensions } from "react-native";
 import Title from "../components/Title";
 import PrimaryButton from "../components/PrimaryButton";
 import Colors from "../utilities/Colors";
@@ -14,7 +14,8 @@ const GameScreen = ({changeScreen, numberSave}) => {
   const [minNumber, setMinNumber] = useState(1);
   const [phoneIntents, setPhoneIntents] = useState(1);
   const [numberAnswer, setNumberAnswer] = useState('');
-  const [logsList, setLogsList] = useState([])
+  const [logsList, setLogsList] = useState([]);
+  const {width, height} = useWindowDimensions();
 
   function backToScreen(){
     changeScreen(1, 0, []);
@@ -57,16 +58,16 @@ const GameScreen = ({changeScreen, numberSave}) => {
 
   return(
     <View>
-      <View style={styles.firstContainer}>
+      <View style={[styles.firstContainer, {marginTop: width < 400 ? 100 : 70}, {marginHorizontal: height < 400  ? 200 : 30}]}>
         <Title>¡The game started!</Title>
         <UserNumber number={numberSave} />
         <View style={styles.secondContainer}>
           <PrimaryButton callBtn={decreaseGuessNumber}>
-            <MaterialCommunityIcons name="minus-circle" size={30} color="black" />
+            <MaterialCommunityIcons name="minus-circle" size={35} color="black" />
           </PrimaryButton>
           <PhoneNumber number={numberAnswer} />
           <PrimaryButton callBtn={increaseGuessNumber}>
-            <AntDesign name="pluscircle" size={30} color="black" />
+            <AntDesign name="pluscircle" size={35} color="black" />
           </PrimaryButton>
         </View>
       </View>
@@ -86,7 +87,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     padding: 10,
     borderRadius: 20,
-    marginVertical: 20,
   },
   secondContainer: {
     flexDirection: 'row',

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, StyleSheet, TextInput, Text, Alert, Dimensions } from "react-native";
+import { View, StyleSheet, TextInput, Text, Alert, Dimensions, useWindowDimensions } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import Colors from "../utilities/Colors";
 import { useFonts } from 'expo-font';
@@ -7,6 +7,7 @@ import AppLoading from 'expo-app-loading';
 
 const StartGameScreen = ({changeScreen}) => {
   const [value, setValue] = useState('');
+  const {width, height} = useWindowDimensions();
 
   const [fontsLoaded] = useFonts({
     'relay-regular': require('../assets/fonts/Raleway_400Regular.ttf')
@@ -40,7 +41,7 @@ const StartGameScreen = ({changeScreen}) => {
   }
 
   return(
-    <View style={styles.StartGameScreenContainer}>
+    <View style={[styles.StartGameScreenContainer, {marginTop: width < 700 ? 100 : 70}, {marginHorizontal: height < 700 ? 220 : 30}]}>
       <View style={styles.firstSection}>
         <View>
           <Text style={styles.h1}>Add a number</Text>
@@ -66,7 +67,6 @@ const StartGameScreen = ({changeScreen}) => {
 
 export default StartGameScreen;
 
-const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
 
 const styles = StyleSheet.create({
@@ -74,10 +74,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   firstSection: {
-    marginTop: deviceHeight > 700 ? 100 : 80,
     padding: 20,
     borderRadius: 10,
     backgroundColor: Colors.green.strong,
+    marginHorizontal: 20
   },
   h1: {
     fontSize: 28,

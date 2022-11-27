@@ -1,9 +1,10 @@
-import { StyleSheet, View, Text, Button, Image } from "react-native";
+import { StyleSheet, View, Text, Button, Image, useWindowDimensions } from "react-native";
 import Title from "../components/Title";
 import UserNumber from "../components/UserNumber";
 import Colors from "../utilities/Colors";
 
 const GameOver = ({numberSave, allLogs, changeScreen}) => {
+  const {width, height} = useWindowDimensions();
 
   function backToScreen(){
     changeScreen(1, 0, []);
@@ -12,7 +13,7 @@ const GameOver = ({numberSave, allLogs, changeScreen}) => {
   return(
     <View style={styles.container}>
       <Title>¡¡THE PHONE GUEESED!!</Title>
-      <Image source={require('../assets/images/gameover.png')} style={styles.image} />
+      <Image source={require('../assets/images/gameover.png')} style={[styles.image, {width: width < 400 ? 250 : 120}, {height: height > 400 ? 250 : 120}]} />
       <Text style={styles.info}>Your phone made: {allLogs.length} intents to guess your number: {numberSave}</Text>
       <View>
         <Button title='Play again' color={Colors.blue.strong} onPress={backToScreen} />
@@ -30,8 +31,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
   image: {
-    width: '80%',
-    height: '31%',
     borderRadius: 10,
     borderWidth: 2,
     marginVertical: 30
