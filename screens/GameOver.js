@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import { StyleSheet, View, Text, Button, Image } from "react-native";
 import Title from "../components/Title";
 import UserNumber from "../components/UserNumber";
 import Colors from "../utilities/Colors";
@@ -11,25 +10,12 @@ const GameOver = ({numberSave, allLogs, changeScreen}) => {
   }
 
   return(
-    <View>
+    <View style={styles.container}>
       <Title>¡¡THE PHONE GUEESED!!</Title>
-      <UserNumber number={numberSave} />
-      <Text>------------</Text>
-      {
-        allLogs.map(log => {
-          return(
-            <Text>
-              {log.id} - {log.num}
-            </Text>
-          )
-        })
-      }
-      <Text>------------</Text>
-      <Text>
-        {allLogs.length}
-      </Text>
+      <Image source={require('../assets/images/gameover.png')} style={styles.image} />
+      <Text style={styles.info}>Your phone made: {allLogs.length} intents to guess your number: {numberSave}</Text>
       <View>
-        <Button title='Exit' color={Colors.red.strong} onPress={backToScreen} />
+        <Button title='Play again' color={Colors.blue.strong} onPress={backToScreen} />
       </View>
     </View>
   )
@@ -37,4 +23,23 @@ const GameOver = ({numberSave, allLogs, changeScreen}) => {
 
 export default GameOver;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
+  },
+  image: {
+    width: '80%',
+    height: '31%',
+    borderRadius: 10,
+    borderWidth: 2,
+    marginVertical: 30
+  },
+  info: {
+    fontWeight: 'bold',
+    marginBottom: 30,
+    textAlign: 'center',
+    fontSize: 18
+  }
+})

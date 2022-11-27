@@ -7,6 +7,9 @@ const Colors = {
   },
   red: {
     strong: '#B73E3E'
+  },
+  blue: {
+    strong: '#3E6D9C'
   }
 }
 
