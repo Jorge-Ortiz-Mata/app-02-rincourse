@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, StyleSheet, TextInput, Text, Alert } from "react-native";
+import { View, StyleSheet, TextInput, Text, Alert, Dimensions } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import Colors from "../utilities/Colors";
 import { useFonts } from 'expo-font';
@@ -66,12 +66,15 @@ const StartGameScreen = ({changeScreen}) => {
 
 export default StartGameScreen;
 
+const deviceWidth = Dimensions.get('screen').width;
+const deviceHeight = Dimensions.get('screen').height;
+
 const styles = StyleSheet.create({
   StartGameScreenContainer: {
     flex: 1,
   },
   firstSection: {
-    marginTop: 100,
+    marginTop: deviceHeight > 700 ? 100 : 80,
     padding: 20,
     borderRadius: 10,
     backgroundColor: Colors.green.strong,
