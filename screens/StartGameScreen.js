@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, StyleSheet, TextInput, Text, Alert, Dimensions, useWindowDimensions } from "react-native";
+import { View, StyleSheet, TextInput, Text, Alert, Dimensions, useWindowDimensions, KeyboardAvoidingView, ScrollView } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import Colors from "../utilities/Colors";
 import { useFonts } from 'expo-font';
@@ -41,27 +41,31 @@ const StartGameScreen = ({changeScreen}) => {
   }
 
   return(
-    <View style={[styles.StartGameScreenContainer, {marginTop: width < 700 ? 100 : 70}, {marginHorizontal: height < 700 ? 220 : 30}]}>
-      <View style={styles.firstSection}>
-        <View>
-          <Text style={styles.h1}>Add a number</Text>
+    <ScrollView style={{flex: 1}}>
+      <KeyboardAvoidingView style={{flex: 1}} behavior='position'>
+        <View style={[styles.StartGameScreenContainer, {marginTop: width < 700 ? 100 : 70}, {marginHorizontal: height < 700 ? 220 : 30}]}>
+          <View style={styles.firstSection}>
+            <View>
+              <Text style={styles.h1}>Add a number</Text>
+            </View>
+            <View style={{justifyContent: 'center', alignItems:'center'}}>
+              <TextInput
+                style={styles.input}
+                maxLength={2}
+                autoComplete='off'
+                keyboardType='number-pad'
+                value={value}
+                onChangeText={changeValue}
+              />
+            </View>
+            <View style={styles.buttonsSection}>
+              <PrimaryButton callBtn={callBtnAction}>Reset</PrimaryButton>
+              <PrimaryButton callBtn={callBtnAction}>Confirm</PrimaryButton>
+            </View>
+          </View>
         </View>
-        <View style={{justifyContent: 'center', alignItems:'center'}}>
-          <TextInput
-            style={styles.input}
-            maxLength={2}
-            autoComplete='off'
-            keyboardType='number-pad'
-            value={value}
-            onChangeText={changeValue}
-          />
-        </View>
-        <View style={styles.buttonsSection}>
-          <PrimaryButton callBtn={callBtnAction}>Reset</PrimaryButton>
-          <PrimaryButton callBtn={callBtnAction}>Confirm</PrimaryButton>
-        </View>
-      </View>
-    </View>
+      </KeyboardAvoidingView>
+      </ScrollView>
   )
 }
 

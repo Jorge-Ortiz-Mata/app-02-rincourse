@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet, FlatList, VirtualizedList } from "react-native";
 import Log from '../components/Log'
 import Colors from "../utilities/Colors";
 
