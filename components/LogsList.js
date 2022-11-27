@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, VirtualizedList } from "react-native";
+import { View, StyleSheet, FlatList, Text } from "react-native";
 import Log from '../components/Log'
 import Colors from "../utilities/Colors";
 
@@ -22,7 +22,6 @@ export default LogsList;
 
 const styles = StyleSheet.create({
   container: {
-    height: 300,
     padding: 10,
     borderRadius: 10
   },

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, Button, StyleSheet, useWindowDimensions } from "react-native";
+import { View, Button, StyleSheet, useWindowDimensions, ScrollView } from "react-native";
 import Title from "../components/Title";
 import PrimaryButton from "../components/PrimaryButton";
 import Colors from "../utilities/Colors";
@@ -57,7 +57,7 @@ const GameScreen = ({changeScreen, numberSave}) => {
   }, [numberAnswer])
 
   return(
-    <View>
+    <ScrollView>
       <View style={[styles.firstContainer, {marginTop: width < 400 ? 100 : 70}, {marginHorizontal: height < 400  ? 200 : 30}]}>
         <Title>¡The game started!</Title>
         <UserNumber number={numberSave} />
@@ -76,7 +76,7 @@ const GameScreen = ({changeScreen, numberSave}) => {
         <Button title='Cancel' color={Colors.red.strong} onPress={backToScreen} />
       </View>
       <LogsList logs={logsList} />
-    </View>
+    </ScrollView>
   )
 }
 

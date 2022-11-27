@@ -13,7 +13,7 @@ export default Title;
 const styles = StyleSheet.create({
   title: {
     fontWeight: '900',
-    fontSize: 25,
+    fontSize: 30,
     textAlign: 'center',
     color: Colors.green.strong,
     padding: 10

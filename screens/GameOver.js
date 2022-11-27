@@ -14,7 +14,7 @@ const GameOver = ({numberSave, allLogs, changeScreen}) => {
     <View style={styles.container}>
       <Title>¡¡THE PHONE GUEESED!!</Title>
       <Image source={require('../assets/images/gameover.png')} style={[styles.image, {width: width < 400 ? 250 : 120}, {height: height > 400 ? 250 : 120}]} />
-      <Text style={styles.info}>Your phone made: {allLogs.length} intents to guess your number: {numberSave}</Text>
+      <Text style={[styles.info, {marginHorizontal: width < 400 ? 10 : 100}]}>Your phone made: {allLogs.length} intents to guess your number: {numberSave}</Text>
       <View>
         <Button title='Play again' color={Colors.blue.strong} onPress={backToScreen} />
       </View>
@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 30,
     textAlign: 'center',
-    fontSize: 18
+    fontSize: 18,
   }
 })

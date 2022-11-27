@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, StyleSheet, TextInput, Text, Alert, Dimensions, useWindowDimensions, KeyboardAvoidingView, ScrollView } from "react-native";
+import { View, StyleSheet, TextInput, Text, Alert, Dimensions, useWindowDimensions, KeyboardAvoidingView, ScrollView, Platform } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import Colors from "../utilities/Colors";
 import { useFonts } from 'expo-font';
@@ -65,7 +65,7 @@ const StartGameScreen = ({changeScreen}) => {
           </View>
         </View>
       </KeyboardAvoidingView>
-      </ScrollView>
+    </ScrollView>
   )
 }
 
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20
   },
   h1: {
-    fontSize: 28,
+    fontSize: Platform.select({ios: 28, android: 32}),
     color: Colors.white,
     textAlign: 'center',
     marginBottom: 10,
